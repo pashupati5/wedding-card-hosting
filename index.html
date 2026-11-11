@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>शुभ विवाह निमन्त्रणा | विकल दाहाल संग श्रद्धा दुलाल</title>
+  
+  <!-- Social Media & Messaging Open Graph Tags (WhatsApp, Facebook, Telegram) -->
+  <meta property="og:title" content="शुभ विवाह निमन्त्रणा | विकल & श्रद्धा">
+  <meta property="og:description" content="मिति २०८३ मंसिर १० गते बिहीबार हुने विकल दाहाल र श्रद्धा दुलालको शुभ विवाहको डिजिटल निमन्त्रणा पत्र">
+  <meta property="og:image" content="invitation_card.png">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#6b0f1a">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Noto+Serif+Devanagari:wght@400;500;600;700;800&family=Yatra+One&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Falling Flower Petals Canvas -->
+  <canvas id="petalsCanvas"></canvas>
+
+  <!-- Top Floating Controls Bar -->
+  <div class="floating-controls">
+    <!-- Language Switcher -->
+    <button id="langToggleBtn" class="control-pill" title="भाषा बदल्नुहोस् / Switch Language">
+      <span class="lang-icon">🌐</span>
+      <span id="langLabel">English</span>
+    </button>
+
+    <!-- Music Toggle Button -->
+    <button id="musicToggleBtn" class="control-pill music-pill" title="मंगल धुन / Music">
+      <span class="music-icon" id="musicIcon">🎵</span>
+      <span class="music-bars" id="musicBars">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </span>
+      <span id="musicLabel">मंगल धुन</span>
+    </button>
+  </div>
+
+  <!-- ENVELOPE OPENING OVERLAY (Initial Screen) -->
+  <div id="envelopeOverlay" class="envelope-overlay">
+    <div class="envelope-wrapper">
+      <div class="envelope" id="envelope">
+        <!-- Back Flap -->
+        <div class="envelope-back"></div>
+        
+        <!-- The Card inside the envelope preview -->
+        <div class="card-preview" id="cardPreview">
+          <div class="card-preview-inner">
+            <div class="preview-ganesha">ॐ</div>
+            <div class="preview-shubha">शुभ विवाह</div>
+            <div class="preview-names">विकल & श्रद्धा</div>
+          </div>
+        </div>
+
+        <!-- Envelope Left and Right folds -->
+        <div class="envelope-left"></div>
+        <div class="envelope-right"></div>
+        <div class="envelope-bottom">
+          <div class="bottom-pattern"></div>
+        </div>
+
+        <!-- Envelope Top Flap (Animated) -->
+        <div class="envelope-flap" id="envelopeFlap">
+          <div class="flap-crest">
+            <span class="ganesha-symbol">॥ श्री गणेशाय नम: ॥</span>
+          </div>
+        </div>
+
+        <!-- Royal Golden Wax Seal Button -->
+        <div class="wax-seal" id="waxSeal" title="निमन्त्रणा खोल्न यहाँ थिच्नुहोस्">
+          <div class="seal-inner">
+            <div class="seal-ring"></div>
+            <div class="seal-monogram">B & S</div>
+            <div class="seal-sub">शुभ विवाह</div>
+          </div>
+          <div class="seal-pulse"></div>
+        </div>
+      </div>
+
+      <!-- Instruction button -->
+      <div class="envelope-instruction">
+        <button class="open-card-btn" id="openCardBtn">
+          <span class="btn-sparkle">✨</span>
+          <span class="btn-text" data-ne="निमन्त्रणा खोल्नुहोस् (Tap to Open)" data-en="Open Invitation (Click Here)">निमन्त्रणा खोल्नुहोस् (Tap to Open)</span>
+          <span class="btn-sparkle">✨</span>
+        </button>
+        <p class="envelope-hint" data-ne="विकल र श्रद्धाको शुभ विवाहको निमन्त्रणा पत्र" data-en="Wedding Invitation of Bikal & Shraddha">विकल र श्रद्धाको शुभ विवाहको निमन्त्रणा पत्र</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN WEDDING INVITATION CARD CONTAINER -->
+  <main class="invitation-container" id="mainCard">
+    <div class="royal-card">
+      
+      <!-- Card Corner Ornaments -->
+      <div class="ornament top-left"></div>
+      <div class="ornament top-right"></div>
+      <div class="ornament bottom-left"></div>
+      <div class="ornament bottom-right"></div>
+
+      <!-- Inner Gold Border Frame -->
+      <div class="card-inner-frame">
+
+        <!-- 1. AUSPICIOUS INVOCATION HEADER -->
+        <header class="card-header">
+          <div class="diya-decor left-diya">🪔</div>
+          <div class="ganesha-motif">
+            <img src="assets/ganesha_gold.png" alt="श्री गणेशाय नम:" class="ganesha-img" onerror="this.style.display='none'">
+            <h2 class="shree-ganesh" data-ne="॥ श्री गणेशाय नम: ॥" data-en="|| Shree Ganeshaya Namah ||">॥ श्री गणेशाय नम: ॥</h2>
+          </div>
+          <div class="diya-decor right-diya">🪔</div>
+
+          <!-- Sacred Sanskrit Shloka -->
+          <div class="shloka-box">
+            <p class="shloka-line" data-ne="मंगलम् भगवान् विष्णुः मङ्गलम् गरुडध्वजः ।" data-en="Mangalam Bhagwan Vishnuh, Mangalam Garudadhwajah |">मंगलम् भगवान् विष्णुः मङ्गलम् गरुडध्वजः ।</p>
+            <p class="shloka-line" data-ne="मङ्गलम् पुण्डरीकाक्षः मङ्गलाय तनो हरी ॥" data-en="Mangalam Pundareekakshah, Mangalaya Tano Harih ||">मङ्गलम् पुण्डरीकाक्षः मङ्गलाय तनो हरी ॥</p>
+          </div>
+
+          <!-- Shubha Vivaha Calligraphy / Emblem -->
+          <div class="shubha-vivaha-banner">
+            <img src="assets/shubha_vivaha_gold.png" alt="शुभ विवाह" class="shubha-vivaha-img" onerror="this.style.display='none'">
+            <h1 class="main-title" data-ne="शुभ विवाह" data-en="Wedding Invitation">शुभ विवाह</h1>
+            <p class="celebration-subtitle" data-ne="एवम् को प्रीति संगम" data-en="Cordially Invites You to the Auspicious Union">एवम् को प्रीति संगम</p>
+          </div>
+        </header>
+
+        <!-- 2. COUPLE SPOTLIGHT SECTION -->
+        <section class="couple-section">
+          
+          <!-- GROOM CARD -->
+          <div class="couple-card groom-card">
+            <div class="portrait-arch">
+              <div class="arch-gold-glow"></div>
+              <div class="portrait-frame">
+                <img src="assets/groom_royal.jpg" alt="विकल दाहाल" class="portrait-img groom-img" onerror="this.src='assets/groom.jpg'">
+              </div>
+            </div>
+            <div class="couple-info">
+              <span class="role-badge groom-badge" data-ne="॥ वर (दुल्हा) ॥" data-en="|| The Groom ||">॥ वर (दुल्हा) ॥</span>
+              <h2 class="person-name" data-ne="विकल दाहाल" data-en="Bikal Dahal">विकल दाहाल</h2>
+              <p class="parentage">
+                <span class="relation" data-ne="चिरञ्जीवी सुपुत्र :" data-en="Loving Son of:">चिरञ्जीवी सुपुत्र :</span><br>
+                <strong data-ne="खेमनाथ दाहाल र भिमकुमारी दाहाल" data-en="Mr. Khem Nath Dahal & Mrs. Bhim Kumari Dahal">खेमनाथ दाहाल र भिमकुमारी दाहाल</strong>
+              </p>
+              <p class="hometown" data-ne="📍 पथरी शनिश्चरे-२, मोरङ" data-en="📍 Pathari Sanischare-2, Morang">📍 पथरी शनिश्चरे-२, मोरङ</p>
+            </div>
+          </div>
+
+          <!-- WEDDING KNOT & KALASH CENTER -->
+          <div class="wedding-knot-divider">
+            <div class="kalash-icon-wrapper">
+              <img src="assets/kalash_gold.png" alt="कलश" class="kalash-img" onerror="this.style.display='none'">
+            </div>
+            <span class="parinya-text" data-ne="परिणय" data-en="Weds">परिणय</span>
+            <div class="sacred-heart">❤️</div>
+          </div>
+
+          <!-- BRIDE CARD -->
+          <div class="couple-card bride-card">
+            <div class="portrait-arch">
+              <div class="arch-gold-glow"></div>
+              <div class="portrait-frame">
+                <img src="assets/bride_portrait.jpg" alt="श्रद्धा दुलाल" class="portrait-img bride-img" onerror="this.src='assets/bride.jpg'">
+              </div>
+            </div>
+            <div class="couple-info">
+              <span class="role-badge bride-badge" data-ne="॥ वधु (दुल्ही) ॥" data-en="|| The Bride ||">॥ वधु (दुल्ही) ॥</span>
+              <h2 class="person-name" data-ne="श्रद्धा दुलाल" data-en="Shraddha Dulal">श्रद्धा दुलाल</h2>
+              <p class="parentage">
+                <span class="relation" data-ne="आयुष्मती सुपुत्री :" data-en="Beloved Daughter of:">आयुष्मती सुपुत्री :</span><br>
+                <strong data-ne="प्रकाश दुलाल र शान्ता दुलाल" data-en="Mr. Prakash Dulal & Mrs. Shanta Dulal">प्रकाश दुलाल र शान्ता दुलाल</strong>
+              </p>
+              <p class="hometown" data-ne="📍 बराहक्षेत्र-२, उदयचोक, सुनसरी" data-en="📍 Barahakshetra-2, Udayachowk, Sunsari">📍 बराहक्षेत्र-२, उदयचोक, सुनसरी</p>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- VIEW BRIDE'S PHOTO GALLERY BUTTON -->
+        <div class="gallery-trigger-wrap">
+          <button class="gold-action-btn" id="viewGalleryBtn">
+            <span>🌸</span>
+            <span data-ne="वधुका थप तस्विरहरू हेर्नुहोस् (Photo Gallery)" data-en="View Bride's Photo Gallery">वधुका थप तस्विरहरू हेर्नुहोस् (Photo Gallery)</span>
+            <span>🌸</span>
+          </button>
+        </div>
+
+        <!-- 3. INVITATION MESSAGE PARAGRAPH -->
+        <section class="formal-invitation-box">
+          <div class="quote-mark">“</div>
+          <p class="invitation-text" data-ne="यही मिति २०८३ साल मंसिर १० गते बिहीबारका दिन दिवा लग्नको शुभ-विवाह सु-सम्पन्न हुने निश्चय भएको हुँदा उक्त शुभ अवसरमा उपस्थित भई नव वर-वधुलाई शुभ आशिर्वाद प्रदान गरिदिनुहुन यहाँहरुको गरिमामय उपस्थितिको लागि हार्दिक सादर निमन्त्रणा गर्दछौं ।" data-en="With the divine blessings of God and our ancestors, the auspicious wedding of Bikal and Shraddha is set to be solemnized on Thursday, 26th November 2026 (2083 Mansir 10). We cordially invite you with family to grace this celebratory occasion and bestow your warm blessings upon the newly wedded couple.">
+            यही मिति २०८३ साल मंसिर १० गते बिहीबारका दिन दिवा लग्नको शुभ-विवाह सु-सम्पन्न हुने निश्चय भएको हुँदा उक्त शुभ अवसरमा उपस्थित भई नव वर-वधुलाई शुभ आशिर्वाद प्रदान गरिदिनुहुन यहाँहरुको गरिमामय उपस्थितिको लागि हार्दिक सादर निमन्त्रणा गर्दछौं ।
+          </p>
+          <div class="quote-mark right-quote">”</div>
+        </section>
+
+        <!-- 4. LIVE WEDDING COUNTDOWN TIMER -->
+        <section class="countdown-section">
+          <h3 class="section-title" data-ne="⏳ शुभ विवाहको काउन्टडाउन ⏳" data-en="⏳ Wedding Countdown ⏳">⏳ शुभ विवाहको काउन्टडाउन ⏳</h3>
+          <p class="countdown-date-note" data-ne="२०८३ मंसिर १० गते (November 26, 2026, 8:00 AM)" data-en="26 November 2026, 08:00 AM">२०८३ मंसिर १० गते (November 26, 2026, 8:00 AM)</p>
+          
+          <div class="countdown-grid" id="countdownGrid">
+            <div class="timer-box">
+              <span class="timer-number" id="timerDays">00</span>
+              <span class="timer-label" data-ne="दिन" data-en="Days">दिन</span>
+            </div>
+            <div class="timer-colon">:</div>
+            <div class="timer-box">
+              <span class="timer-number" id="timerHours">00</span>
+              <span class="timer-label" data-ne="घण्टा" data-en="Hours">घण्टा</span>
+            </div>
+            <div class="timer-colon">:</div>
+            <div class="timer-box">
+              <span class="timer-number" id="timerMinutes">00</span>
+              <span class="timer-label" data-ne="मिनेट" data-en="Mins">मिनेट</span>
+            </div>
+            <div class="timer-colon">:</div>
+            <div class="timer-box">
+              <span class="timer-number" id="timerSeconds">00</span>
+              <span class="timer-label" data-ne="सेकेन्ड" data-en="Secs">सेकेन्ड</span>
+            </div>
+          </div>
+          <div id="countdownCelebration" class="countdown-celebration" style="display:none;">
+            🎉 शुभ विवाह सु-सम्पन्न! नवदम्पतीलाई हार्दिक बधाई एवं शुभकामना! 🎉
+          </div>
+        </section>
+
+        <!-- 5. CEREMONIAL EVENTS TIMELINE (वैवाहिक कार्यक्रम) -->
+        <section class="events-section">
+          <h2 class="section-title" data-ne="॥ वैवाहिक कार्यक्रम एवं मिति ॥" data-en="|| Wedding Events & Itinerary ||">॥ वैवाहिक कार्यक्रम एवं मिति ॥</h2>
+
+          <div class="events-grid">
+            
+            <!-- Event 1: जन्ति प्रस्थान -->
+            <div class="event-card">
+              <div class="event-badge">
+                <span class="event-icon">🚩</span>
+                <span data-ne="कार्यक्रम १" data-en="Event 1">कार्यक्रम १</span>
+              </div>
+              <h3 class="event-title" data-ne="जन्ति प्रस्थान एवं शुभ-विवाह" data-en="Barat (Janti) & Wedding Ceremony">जन्ति प्रस्थान एवं शुभ-विवाह</h3>
+              
+              <div class="event-detail-row">
+                <span class="detail-icon">📅</span>
+                <div>
+                  <strong data-ne="२०८३ मंसिर १० गते बिहीबार" data-en="Thursday, 26 November 2026">२०८३ मंसिर १० गते बिहीबार</strong>
+                  <div class="detail-sub" data-ne="(26 November 2026)" data-en="(2083 Mansir 10)">(26 November 2026)</div>
+                </div>
+              </div>
+
+              <div class="event-detail-row">
+                <span class="detail-icon">⏰</span>
+                <div>
+                  <strong data-ne="बिहान ८:०० बजे प्रस्थान" data-en="Departure: 8:00 AM">बिहान ८:०० बजे प्रस्थान</strong>
+                  <div class="detail-sub" data-ne="दिवा लग्नमा शुभ-विवाह संस्कार" data-en="Daytime auspicious Lagna ritual">दिवा लग्नमा शुभ-विवाह संस्कार</div>
+                </div>
+              </div>
+
+              <div class="event-detail-row">
+                <span class="detail-icon">📍</span>
+                <div>
+                  <strong data-ne="प्रस्थान: निजी निवास (पथरी) बाट" data-en="Departure from: Groom Residence (Pathari)">प्रस्थान: निजी निवास (पथरी) बाट</strong>
+                  <div class="detail-sub" data-ne="गन्तव्य: बराहक्षेत्र-२, उदयचोक, सुनसरी" data-en="Destination: Barahakshetra-2, Udayachowk, Sunsari">गन्तव्य: बराहक्षेत्र-२, उदयचोक, सुनसरी</div>
+                </div>
+              </div>
+
+              <div class="event-actions">
+                <a href="https://www.google.com/maps/search/?api=1&query=Barahakshetra-2+Udayachowk+Sunsari+Nepal" target="_blank" rel="noopener" class="event-btn map-btn">
+                  📍 <span data-ne="बराहक्षेत्र नक्सा" data-en="Venue Map">बराहक्षेत्र नक्सा</span>
+                </a>
+                <button class="event-btn cal-btn" onclick="addToGoogleCalendar('janti')">
+                  📅 <span data-ne="क्यालेन्डरमा जोड्नुहोस्" data-en="Add to Calendar">क्यालेन्डरमा जोड्नुहोस्</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Event 2: प्रीतिभोज (भोज) -->
+            <div class="event-card highlight-event">
+              <div class="event-badge gold-badge">
+                <span class="event-icon">🍽️</span>
+                <span data-ne="कार्यक्रम २ (विशेष)" data-en="Event 2 (Reception)">कार्यक्रम २ (विशेष)</span>
+              </div>
+              <h3 class="event-title" data-ne="प्रीतिभोज (Wedding Reception)" data-en="Wedding Reception (Preeti Bhoj)">प्रीतिभोज (Wedding Reception)</h3>
+
+              <div class="event-detail-row">
+                <span class="detail-icon">📅</span>
+                <div>
+                  <strong data-ne="२०८३ मंसिर ११ गते शुक्रबार" data-en="Friday, 27 November 2026">२०८३ मंसिर ११ गते शुक्रबार</strong>
+                  <div class="detail-sub" data-ne="(27 November 2026)" data-en="(2083 Mansir 11)">(27 November 2026)</div>
+                </div>
+              </div>
+
+              <div class="event-detail-row">
+                <span class="detail-icon">⏰</span>
+                <div>
+                  <strong data-ne="दिनको १:०० बजेदेखि" data-en="From 1:00 PM Onwards">दिनको १:०० बजेदेखि</strong>
+                  <div class="detail-sub" data-ne="स्वादिलो भोज एवं शुभकामना आदानप्रदान" data-en="Feast & Blessings Celebration">स्वादिलो भोज एवं शुभकामना आदानप्रदान</div>
+                </div>
+              </div>
+
+              <div class="event-detail-row">
+                <span class="detail-icon">📍</span>
+                <div>
+                  <strong data-ne="स्थान : निजी निवास" data-en="Venue : Private Residence">स्थान : निजी निवास</strong>
+                  <div class="detail-sub" data-ne="पथरी शनिश्चरे न.पा.-२, मोरङ" data-en="Pathari Sanischare Municipality-2, Morang">पथरी शनिश्चरे न.पा.-२, मोरङ</div>
+                </div>
+              </div>
+
+              <div class="event-actions">
+                <a href="https://www.google.com/maps/search/?api=1&query=Pathari+Sanischare-2+Morang+Nepal" target="_blank" rel="noopener" class="event-btn map-btn">
+                  📍 <span data-ne="पथरी निवास नक्सा" data-en="Venue Map">पथरी निवास नक्सा</span>
+                </a>
+                <button class="event-btn cal-btn" onclick="addToGoogleCalendar('reception')">
+                  📅 <span data-ne="क्यालेन्डरमा जोड्नुहोस्" data-en="Add to Calendar">क्यालेन्डरमा जोड्नुहोस्</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- 6. QUICK ACTION BUTTONS (WHATSAPP, SHARE, SAVE CARD) -->
+        <section class="social-share-section">
+          <h3 class="section-title" data-ne="📲 निमन्त्रणा सेयर एवं सम्पर्क 📲" data-en="📲 Share & Contact 📲">📲 निमन्त्रणा सेयर एवं सम्पर्क 📲</h3>
+
+          <div class="share-buttons-grid">
+            <!-- Share on WhatsApp -->
+            <button class="share-btn whatsapp-share-btn" id="shareWhatsappBtn">
+              <span class="share-btn-icon">💬</span>
+              <span class="share-btn-text" data-ne="व्हाट्सएपमा सेयर गर्नुहोस्" data-en="Share on WhatsApp">व्हाट्सएपमा सेयर गर्नुहोस्</span>
+            </button>
+
+            <!-- Copy Formatted Message -->
+            <button class="share-btn copy-msg-btn" id="copyMessageBtn">
+              <span class="share-btn-icon">📋</span>
+              <span class="share-btn-text" data-ne="निमन्त्रणा सन्देश कपी गर्नुहोस्" data-en="Copy Invitation Message">निमन्त्रणा सन्देश कपी गर्नुहोस्</span>
+            </button>
+
+            <!-- Direct WhatsApp RSVP -->
+            <a href="https://api.whatsapp.com/send?phone=9779842096841&text=%E0%A4%B9%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%A6%E0%A4%BF%E0%A4%95%20%E0%A4%AC%E0%A4%A7%E0%A4%BE%E0%A4%88%20%E0%A4%B5%E0%A4%BF%E0%A4%95%E0%A4%B2%20%E0%A4%B0%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A4%A6%E0%A5%8D%E0%A4%A7%E0%A4%BE!%20%E0%A4%AE%20%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%BE%E0%A4%B9%E0%A4%AE%E0%A4%BE%20%E0%A4%89%E0%A4%AA%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A4%BF%E0%A4%A4%20%E0%A4%B9%E0%A5%81%E0%A4%A8%E0%A5%87%E0%A4%9B%E0%A5%81%E0%A5%A4" target="_blank" rel="noopener" class="share-btn rsvp-wa-btn">
+              <span class="share-btn-icon">💌</span>
+              <span class="share-btn-text" data-ne="RSVP via WhatsApp" data-en="RSVP via WhatsApp">RSVP via WhatsApp</span>
+            </a>
+
+            <!-- Download PNG Card -->
+            <a href="invitation_card.png" download="Bikal_Shraddha_Wedding_Invitation.png" class="share-btn download-card-btn">
+              <span class="share-btn-icon">🖼️</span>
+              <span class="share-btn-text" data-ne="कार्ड फोटो डाउनलोड गर्नुहोस्" data-en="Download Image Card">कार्ड फोटो डाउनलोड गर्नुहोस्</span>
+            </a>
+          </div>
+
+          <!-- Toast Alert notification on copy -->
+          <div id="copyToast" class="copy-toast">निमन्त्रणा सन्देश कपी गरियो! साथीहरूलाई पठाउन सक्नुहुन्छ।</div>
+        </section>
+
+        <!-- 7. FAMILY HONORS SECTION (प्रार्थी, दर्शनाभिलाषी, सम्झनामा) -->
+        <section class="family-section">
+          
+          <div class="family-column">
+            <h4 class="family-title" data-ne="॥ प्रार्थी ॥" data-en="|| With Regards (Parents & Grandparents) ||">॥ प्रार्थी ॥</h4>
+            <ul class="family-list">
+              <li><span class="rel-label" data-ne="हजुरआमा :" data-en="Grandmothers:">हजुरआमा :</span> डिकुरादेवी दाहाल, टंकादेवी दाहाल</li>
+              <li><span class="rel-label" data-ne="बुवा :" data-en="Father:">बुवा :</span> खेमनाथ दाहाल</li>
+              <li><span class="rel-label" data-ne="आमा :" data-en="Mother:">आमा :</span> भिमकुमारी दाहाल</li>
+            </ul>
+
+            <h4 class="family-title remembrance-title" data-ne="॥ सम्झनामा ॥" data-en="|| In Loving Memory ||">॥ सम्झनामा ॥</h4>
+            <p class="remembrance-text">
+              स्व. होमनाथ दाहाल (हजुरबुवा)<br>
+              स्व. भोजराज भण्डारी (हजुरबुवा)
+            </p>
+          </div>
+
+          <div class="family-column">
+            <h4 class="family-title" data-ne="॥ दर्शनाभिलाषी ॥" data-en="|| Well Wishers ||">॥ दर्शनाभिलाषी ॥</h4>
+            <ul class="family-list">
+              <li><span class="rel-label" data-ne="काका, काकी :" data-en="Uncles & Aunts:">काका, काकी :</span> युवराज + टिका दाहाल</li>
+              <li><span class="rel-label" data-ne="काका :" data-en="Uncle:">काका :</span> दीपक दाहाल</li>
+              <li><span class="rel-label" data-ne="फुपु, फुपाजु :" data-en="Aunts & Uncles:">फुपु, फुपाजु :</span> सीता + डम्बर भट्टराई, दुर्गा + गोपालप्रसाद भट्टराई, इन्द्रादेवी + गंगाप्रसाद तिम्सिना</li>
+              <li><span class="rel-label" data-ne="फुपु :" data-en="Aunts:">फुपु :</span> सोमादेवी भट्टराई, मैयादेवी दाहाल</li>
+              <li><span class="rel-label" data-ne="हजुरआमा :" data-en="Grandmother:">हजुरआमा :</span> रुक्मिणा भण्डारी</li>
+              <li><span class="rel-label" data-ne="मामा, माइजु :" data-en="Maternal Uncles & Aunts:">मामा, माइजु :</span> चन्द्रप्रसाद + अम्बिका, केशव + मेनुका, टिका + शान्ता, प्रदिप + रेखा भण्डारी</li>
+              <li><span class="rel-label" data-ne="भाइहरू :" data-en="Brothers:">भाइहरू :</span> <strong>पशुपतिनाथ, युदिन, युसुफ दाहाल</strong></li>
+              <li class="family-climax" data-ne="एवम् समस्त दाहाल परिवार" data-en="And the Entire Dahal Family">एवम् समस्त दाहाल परिवार</li>
+            </ul>
+          </div>
+
+          <div class="family-column contact-column">
+            <h4 class="family-title" data-ne="॥ सम्पर्क नम्बरहरू ॥" data-en="|| Contact Numbers ||">॥ सम्पर्क नम्बरहरू ॥</h4>
+            <p class="contact-desc" data-ne="सोधपुछ वा अन्य सहयोगका लागि फोन गर्नुहोस् :" data-en="For queries and assistance, please call:">सोधपुछ वा अन्य सहयोगका लागि फोन गर्नुहोस् :</p>
+            
+            <div class="phone-cards">
+              <a href="tel:9842096841" class="phone-item">
+                <span class="phone-icon">📞</span>
+                <span class="phone-digits">९८४२०९६८४१ (9842096841)</span>
+              </a>
+              <a href="tel:9862325523" class="phone-item">
+                <span class="phone-icon">📞</span>
+                <span class="phone-digits">९८६२३२५५२३ (9862325523)</span>
+              </a>
+              <a href="tel:9840036925" class="phone-item">
+                <span class="phone-icon">📞</span>
+                <span class="phone-digits">९८४००३६९२५ (9840036925)</span>
+              </a>
+            </div>
+
+            <!-- View Original Physical Card Button -->
+            <button class="view-original-card-btn" id="viewOriginalCardBtn">
+              <span>📜</span>
+              <span data-ne="मौलिक छापिएको कार्ड हेर्नुहोस्" data-en="View Original Printed Card">मौलिक छापिएको कार्ड हेर्नुहोस्</span>
+            </button>
+          </div>
+
+        </section>
+
+        <!-- FOOTER BLESSING -->
+        <footer class="card-footer">
+          <div class="footer-divider">❖ ❖ ❖</div>
+          <p class="footer-blessing" data-ne="वर-वधुलाई शुभ आशिर्वाद दिई कार्यक्रमको शोभा बढाइदिनुहुन हार्दिक अनुरोध गर्दछौं ।" data-en="We sincerely request your gracious presence to bless the couple and brighten our celebrations.">
+            वर-वधुलाई शुभ आशिर्वाद दिई कार्यक्रमको शोभा बढाइदिनुहुन हार्दिक अनुरोध गर्दछौं ।
+          </p>
+          <p class="copyright-note">॥ विकल परिणय श्रद्धा ॥</p>
+        </footer>
+
+      </div> <!-- /card-inner-frame -->
+    </div> <!-- /royal-card -->
+  </main>
+
+  <!-- MODAL 1: BRIDE PHOTO GALLERY LIGHTBOX -->
+  <div id="galleryModal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="closeGalleryBtn">&times;</button>
+      <h3 class="modal-title" data-ne="🌸 वधु श्रद्धा दुलालका तस्विरहरू 🌸" data-en="🌸 Bride Shraddha Dulal Gallery 🌸">🌸 वधु श्रद्धा दुलालका तस्विरहरू 🌸</h3>
+      
+      <div class="gallery-slider">
+        <div class="slide-container">
+          <img src="assets/bride.jpg" alt="Shraddha Dulal" class="gallery-active-img" id="galleryActiveImg">
+        </div>
+        <div class="gallery-nav">
+          <button class="nav-btn prev-btn" id="galleryPrevBtn">&#10094;</button>
+          <span class="gallery-counter" id="galleryCounter">1 / 5</span>
+          <button class="nav-btn next-btn" id="galleryNextBtn">&#10095;</button>
+        </div>
+        <div class="thumbnails-row" id="thumbnailsRow">
+          <!-- Thumbnails injected via JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: ORIGINAL PRINTED CARD VIEWER -->
+  <div id="originalCardModal" class="modal-overlay">
+    <div class="modal-content original-card-modal-content">
+      <button class="modal-close-btn" id="closeOriginalCardBtn">&times;</button>
+      <h3 class="modal-title" data-ne="📜 मौलिक छापिएको निमन्त्रणा पत्र 📜" data-en="📜 Original Printed Wedding Card 📜">📜 मौलिक छापिएको निमन्त्रणा पत्र 📜</h3>
+      <div class="original-card-wrap">
+        <img src="assets/card_original.jpg" alt="Wedding Card Original" class="original-card-full-img">
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
