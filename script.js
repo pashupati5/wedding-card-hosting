@@ -538,11 +538,11 @@ function initGalleryModal() {
   if (!modal || !triggerBtn) return;
 
   const photos = [
-    'assets/bride.jpg',
-    'assets/bride_gallery_1.jpg',
-    'assets/bride_gallery_2.jpg',
-    'assets/bride_gallery_3.jpg',
-    'assets/bride_gallery_4.jpg'
+    'bride.jpg',
+    'bride_gallery_1.jpg',
+    'bride_gallery_2.jpg',
+    'bride_gallery_3.jpg',
+    'bride_gallery_4.jpg'
   ];
 
   let currentIndex = 0;
